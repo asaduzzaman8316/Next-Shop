@@ -1,0 +1,90 @@
+import { useEffect, useState } from "react"
+import { FaRegHeart } from "react-icons/fa";
+import { GrView } from "react-icons/gr";
+import { TbArrowsCross } from "react-icons/tb";
+import RaringWithP from "../../Compomemts/Share/RaringWithP";
+import PriceWithButton from "../../Compomemts/Share/PriceWithButton";
+import AOS from 'aos';
+import 'aos/dist/aos.css'
+AOS.init()
+type productss = {
+    name: string,
+    id: number,
+    brand: string,
+    image1: string,
+    image2: string,
+    rating: number,
+    currentPrice: number,
+    previousPrice: number,
+    categoryId: number,
+    label: string,
+    labelColor: string
+}
+function ProductCard(props: { id?: number }) {
+    const [products, setProducts] = useState([])
+
+    useEffect(() => {
+        async function getDataa() {
+            const res = await fetch('/Product.json')
+            const { products } = await res.json()
+            setProducts(products)
+        }
+        getDataa()
+    }, [])
+
+    // function handlerMouseEnter(e: React.MouseEvent<HTMLImageElement>) {
+    //     if (e.type === 'mouseenter') {
+    //         setSrc(2)
+    //     }
+
+    // }
+    // function handlerMouseLeave(e: React.MouseEvent<HTMLImageElement>) {
+    //     if (e.type === 'mouseleave') {
+    //         setSrc(1)
+    //     }
+    // }
+    const filterProduct = props.id !== 0 ? products.filter((item: productss) => item.categoryId === props.id) : products;
+    return (
+        <>
+            {
+                filterProduct.map((item: productss) => (
+                    (< div data-aos='fade-up' key={item.id} className="border relative border-gray-200 group font-[quicksand] rounded-xl hover:border-green-200 hover:shadow-md duration-500 mt-14 ">
+                        <div className="p-4 relative">
+                            <img
+                                className="group-hover:scale-105 opacity-100 group-hover:opacity-0  duration-1000 "
+                                src={item.image1} alt="" />
+
+                            <img
+                                className=" opacity-0  group-hover:opacity-100  duration-1000 absolute top-0 right-0 "
+                                src={item.image2} alt="" />
+
+                        </div>
+                        <div
+                            className={`border flex w-[50%] bg-white border-green-200 justify-between px-2 py-1 rounded-lg absolute text-green-500  mx-auto divide-x  top-[30%] left-[25%] duration-500 transition-all opacity-0 group-hover:opacity-100`}>
+                            <div className="flex-1 flex justify-center items-center py-2">
+                                <FaRegHeart />
+                            </div>
+                            <div className="flex-1 flex justify-center items-center py-2">
+                                <TbArrowsCross />
+                            </div>
+                            <div className="flex-1 flex justify-center items-center py-2">
+                                <GrView />
+                            </div>
+                        </div>
+                        <div className="px-4 pb-5">
+                            <h1 className=" leading-5 text-gray-700 font-bold line-clamp-1 w-56 hover:text-green-600 duration-300">{item.name}</h1>
+                            <RaringWithP rating={item.rating} />
+                            <p className="text-gray-400 text-base">By <span className="text-green-600 hover:text-yellow-400 duration-300">{item.brand}</span></p>
+                            <PriceWithButton currentPrice={item.currentPrice} previousPrice={item.previousPrice} />
+                        </div>
+                        <div className={`${item.labelColor} text-white w-12 px-2 flex justify-center items-center absolute top-0 rounded-tl-xl rounded-br-xl`}>
+                            <p>{item.label}</p>
+                        </div>
+                    </div>)
+                ))
+            }
+        </>
+    )
+}
+
+export default ProductCard

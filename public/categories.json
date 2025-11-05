@@ -1,0 +1,88 @@
+{
+  "categories": [
+    {
+      "id": 1,
+      "name": "Oqanic Kiwi",
+      "totalItems": 123,
+      "image": "https://nest-frontend-v6.vercel.app/assets/imgs/shop/cat-12.png",
+      "color": "bg-[#FFE8F0]"
+    },
+    {
+      "id": 2,
+      "name": "Peach",
+      "totalItems": 34,
+      "image": "https://nest-frontend-v6.vercel.app/assets/imgs/shop/cat-11.png",
+      "color": "bg-[#FFFBE6]"
+    },
+    {
+      "id": 3,
+      "name": "Red Apple",
+      "totalItems": 89,
+      "image": "https://nest-frontend-v6.vercel.app/assets/imgs/shop/cat-9.png",
+      "color": "bg-[#FFF3E8]"
+    },
+    {
+      "id": 4,
+      "name": "Snack",
+      "totalItems": 87,
+      "image": "https://nest-frontend-v6.vercel.app/assets/imgs/shop/cat-3.png",
+      "color": "bg-[#E8FFF7]"
+    },
+    {
+      "id": 5,
+      "name": "Vegetables",
+      "totalItems": 26,
+      "image": "https://nest-frontend-v6.vercel.app/assets/imgs/shop/cat-1.png",
+      "color": "bg-[#EFFFF3]"
+    },
+    {
+      "id": 6,
+      "name": "Strawberry",
+      "totalItems": 28,
+      "image": "https://nest-frontend-v6.vercel.app/assets/imgs/shop/cat-2.png",
+      "color": "bg-[#FEFFE8]"
+    },
+    {
+      "id": 7,
+      "name": "Black plum",
+      "totalItems": 14,
+      "image": "https://nest-frontend-v6.vercel.app/assets/imgs/shop/cat-4.png",
+      "color": "bg-[#FFF5E8]"
+    },
+    {
+      "id": 8,
+      "name": "Custard apple",
+      "totalItems": 54,
+      "image": "https://nest-frontend-v6.vercel.app/assets/imgs/shop/cat-5.png",
+      "color": "bg-[#FFECEC]"
+    },
+    {
+      "id": 9,
+      "name": "Organic Foods",
+      "totalItems": 56,
+      "image": "https://nest-frontend-v6.vercel.app/assets/imgs/shop/cat-7.png",
+      "color": "bg-[#FFF8E6]"
+    },
+    {
+      "id": 10,
+      "name": "Vegetables",
+      "totalItems": 72,
+      "image": "https://nest-frontend-v6.vercel.app/assets/imgs/shop/cat-8.png",
+      "color": "bg-[#F0FFF1]"
+    },
+    {
+      "id": 11,
+      "name": "Fruits",
+      "totalItems": 95,
+      "image": "https://nest-frontend-v6.vercel.app/assets/imgs/shop/cat-2.png",
+      "color": "bg-[#FFF0F3]"
+    },
+    {
+      "id": 12,
+      "name": "Bakery && Sweets",
+      "totalItems": 43,
+      "image": "https://nest-frontend-v6.vercel.app/assets/imgs/shop/cat-2.png",
+      "color": "bg-[#FFF9E9]"
+    }
+  ]
+}
