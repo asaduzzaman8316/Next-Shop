@@ -6,7 +6,7 @@ function Hero() {
         <div data-aos='zoom-out' className="lg:w-[80%] relative 2xl:container mx-auto mt-10">
             <img
                 className="relative rounded-2xl"
-                src="/public/slider-1.png" alt="" />
+                src="/slider-1.png" alt="" />
             <div className="absolute top-8 p-16 w-[40%] space-y-5">
                 <h1 className="text-6xl font-bold text-gray-700">Fresh Vegetables Big discount</h1>
                 <p className="text-xl font-semibold text-gray-500">Save up to 50% the daily off on your first order</p>
