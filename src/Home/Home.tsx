@@ -28,7 +28,7 @@ function Home() {
       <DealsOfDay />
 
       <FourCategory />
-      <SubScribe src='banner-9.png'/>
+      <SubScribe src='banner-9.png' />
 
       <LastService />
     </div>

@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react"
-// const categoriesData = fetch('categories.json').then(res => res.json())
+
+import useData from "../../Compomemts/Share/useData"
+
 type categories = {
     id: number,
     name: string,
@@ -8,17 +9,9 @@ type categories = {
     totalItems: number
 }
 function CategoriesCard() {
-    // const categories = use(categoriesData);
-    // console.log(categories)
-    const [categories, setCategories] = useState([])
-    useEffect(() => {
-        async function getData() {
-            const res = await fetch('categories.json')
-            const { categories } = await res.json()
-            setCategories(categories)
-        }
-        getData()
-    }, [])
+
+    const [categories] = useData()
+
 
 
     return (
@@ -27,7 +20,7 @@ function CategoriesCard() {
                 categories.map((item: categories, idx) => (
                     <div key={idx} className="flex flex-wrap  gap-5  items-center justify-center  ">
 
-                        <div  className={`p-4 text-center ${item.color} font-[quicksand] rounded-lg group border border-white hover:border-green-200 duration-500 transition-all hover:shadow-md  hover:rounded-lg`} >
+                        <div className={`p-4 text-center ${item.color} font-[quicksand] rounded-lg group border border-white hover:border-green-200 duration-500 transition-all hover:shadow-md  hover:rounded-lg`} >
                             <img
                                 className="hover:scale-105 duration-500 ease-in-out"
                                 src={item.image} alt="" />

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+
 import { FaRegHeart } from "react-icons/fa";
 import { GrView } from "react-icons/gr";
 import { TbArrowsCross } from "react-icons/tb";
@@ -6,6 +6,7 @@ import RaringWithP from "../../Compomemts/Share/RaringWithP";
 import PriceWithButton from "../../Compomemts/Share/PriceWithButton";
 import AOS from 'aos';
 import 'aos/dist/aos.css'
+import useData from "../../Compomemts/Share/useData";
 AOS.init()
 type productss = {
     name: string,
@@ -21,16 +22,8 @@ type productss = {
     labelColor: string
 }
 function ProductCard(props: { id?: number }) {
-    const [products, setProducts] = useState([])
+    const [,products] = useData()
 
-    useEffect(() => {
-        async function getDataa() {
-            const res = await fetch('/Product.json')
-            const { products } = await res.json()
-            setProducts(products)
-        }
-        getDataa()
-    }, [])
 
     // function handlerMouseEnter(e: React.MouseEvent<HTMLImageElement>) {
     //     if (e.type === 'mouseenter') {

@@ -10,12 +10,13 @@ function SubScribe({ src }: { src: string }) {
                     className="rounded-2xl"
                     src="/banner-10.png" alt="" />
 
-                <div className='absolute bottom-8 right-8 '>
+                <div className='absolute bottom-0 right-8 '>
                     <img width={500} src={src} alt="" />
                 </div>
             </div>
             <div className='absolute top-0 left-0 p-24'>
-                <h1 className='text-5xl text-gray-700 font-semibold pb-5'>Stay home & get your daily<br />
+                <h1 className='text-5xl text-gray-700 font-semibold pb-5'>Stay home & get your daily
+                    <br />
                     needs from our shop</h1>
                 <p className='text-gray-600'>Start You&&apos;r Daily Shopping with <span className='text-green-600'>Nest Mart</span></p>
 

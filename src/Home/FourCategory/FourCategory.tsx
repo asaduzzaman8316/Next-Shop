@@ -1,16 +1,9 @@
-import { useEffect, useState } from "react"
+
 import SingleCategory from "./SingleCategory"
+import useData from "../../Compomemts/Share/useData"
 
 function FourCategory() {
-    const [products, setProduct] = useState([])
-    useEffect(() => {
-        async function getData() {
-            const res = await fetch('/Product.json')
-            const { products } = await res.json()
-            setProduct(products)
-        }
-        getData();
-    }, [])
+    const [products] = useData()
     return (
         <div className='2xl:container lg:w-[80%] mx-auto mt-30'>
             <div className='grid grid-cols-4 gap-5'>

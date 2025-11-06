@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react"
+
 import ShowProduct from "./ShowProduct"
 import AOS from 'aos';
 import 'aos/dist/aos.css'
+import useData from "../../../Compomemts/Share/useData";
 AOS.init()
 type productss = {
     name: string,
@@ -10,16 +11,7 @@ type productss = {
     label: string,
 }
 function NewProduct() {
-    const [products, setProducts] = useState([])
-
-    useEffect(() => {
-        async function getDataa() {
-            const res = await fetch('/Product.json')
-            const { products } = await res.json()
-            setProducts(products)
-        }
-        getDataa()
-    }, [])
+    const [products] = useData()
 
     const filterProduct = products.filter((item: productss) => item.label === 'new')
 

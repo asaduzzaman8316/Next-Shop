@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react"
+import {  useState } from "react"
 import ProductCard from "./ProductCard"
+import useData from "../../Compomemts/Share/useData"
 
 type categories = {
     id: number,
@@ -9,17 +10,10 @@ type categories = {
     totalItems: number
 }
 function PopularProductsHead() {
-    const [categories, setCategories] = useState([])
+    // fetch data 
+    const [categories] = useData()
     
     const [cid, setCid] = useState(0)
-    useEffect(() => {
-        async function getData() {
-            const res = await fetch('categories.json')
-            const { categories } = await res.json()
-            setCategories(categories)
-        }
-        getData()
-    }, [])
 
     const [btn, setBtn] = useState(0)
     function handleClick(id:number):void{

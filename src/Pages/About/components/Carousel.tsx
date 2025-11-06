@@ -18,7 +18,7 @@ function Carousel() {
     };
 
     return (
-        <div className='  gap-3'>
+        <div className=''>
             <Slider {...settings}>
                 <div data-aos="zoom-in" className="px-2">
                     <img
