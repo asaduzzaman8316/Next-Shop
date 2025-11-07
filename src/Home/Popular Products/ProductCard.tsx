@@ -8,6 +8,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css'
 import useData from "../../Compomemts/Share/useData";
 import { Link } from "react-router";
+import Loader from "../../Loader/Loader";
 AOS.init()
 type productss = {
     name: string,
@@ -23,10 +24,17 @@ type productss = {
     labelColor: string
 }
 function ProductCard(props: { id?: number }) {
-    const [, products] = useData()
+    const [, products, isLoading] = useData()
 
+    if (isLoading) {
+        return (
+            <div className="flex justify-center items-center w-full h-screen">
+                <Loader/>
+            </div>
+        )
+    }
 
-    const filterProduct = props.id !== 0 ? products.filter((item: productss) => item.categoryId === props.id) : products;
+    const filterProduct = props.id !== 0 ? (products as productss[]).filter((item: productss) => item.categoryId === props.id) : (products as productss[]);
     return (
         <>
             {
@@ -62,7 +70,7 @@ function ProductCard(props: { id?: number }) {
                             </Link>
                             <RaringWithP rating={item.rating} />
                             <p className="text-gray-400 text-base">By <span className="text-green-600 hover:text-yellow-400 duration-300">{item.brand}</span></p>
-                            <PriceWithButton currentPrice={item.currentPrice} previousPrice={item.previousPrice} />
+                            <PriceWithButton id={item.id} currentPrice={item.currentPrice} previousPrice={item.previousPrice} />
                         </div>
                         <div className={`${item.labelColor} text-white w-12 px-2 flex justify-center items-center absolute top-0 rounded-tl-xl rounded-br-xl`}>
                             <p>{item.label}</p>

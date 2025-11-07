@@ -3,18 +3,22 @@ import { Outlet } from "react-router"
 import Header from "./Compomemts/Share/Header/Header"
 import Footer from "./Compomemts/Share/Footer.tsx/Footer"
 import Name from "./Compomemts/Share/Name"
+import { store } from './Redux/store'
+import { Provider } from "react-redux"
 
 
 function App() {
   return (
-    <div className="relative">
+
+    <Provider store={store}>
       <Header />
       <Name />
       <main className="min-h-screen">
         <Outlet />
       </main>
       <Footer />
-    </div>
+    </Provider>
+
   )
 }
 

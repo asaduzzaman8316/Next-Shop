@@ -1,7 +1,26 @@
+import { NavLink } from "react-router";
 
 
 function HeaderTop() {
-    const data = ["About Us", "My Account", "Wishilist", "Order Tracking"];
+    const data = [
+        {
+            name: "About Us",
+            nav: '/about'
+        },
+        {
+            name: "My Account",
+            nav: '/my-account'
+        },
+        {
+            name: "Wishilist",
+            nav: '/wishilist'
+        },
+        {
+            name: "Order Tracking",
+            nav: '/order-tracking'
+        }
+
+    ];
 
     return (
         <div className="border-b border-gray-300">
@@ -9,9 +28,9 @@ function HeaderTop() {
                 <div className="space-x-3">
                     {
                         data.map((item, idx) => (
-                            <a
+                            <NavLink
                                 className={`${idx === 0 ? 'border-none' : 'border-l'} pl-3 border-gray-300 text-gray-600 text-sm`}
-                                key={idx} href="#">{item}</a>
+                                key={idx} to={item.nav}>{item.name}</NavLink>
                         ))
                     }
                 </div>

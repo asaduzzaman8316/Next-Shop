@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+
 import { FaRegHeart } from 'react-icons/fa'
 import { GrView } from 'react-icons/gr'
 import { IoCartOutline } from 'react-icons/io5'
@@ -8,6 +8,11 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import AOS from 'aos';
 import 'aos/dist/aos.css'
+import useData from '../../Compomemts/Share/useData'
+import { useDispatch } from 'react-redux';
+import { increment } from '../../Cart/counterSlice';
+import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router';
 AOS.init()
 type productss = {
     name: string,
@@ -26,16 +31,11 @@ type productss = {
 }
 function Silder(props: { label: string }) {
 
-    const [products, setProducts] = useState([])
+    const [, products] = useData() as [boolean , productss[]]
 
-    useEffect(() => {
-        async function getDataa() {
-            const res = await fetch('/Product.json')
-            const { products } = await res.json()
-            setProducts(products)
-        }
-        getDataa()
-    }, [])
+    const dispatch = useDispatch()
+
+    const navegite = useNavigate()
 
 
     const settings = {
@@ -51,14 +51,16 @@ function Silder(props: { label: string }) {
     };
 
 
-    const filterProduct = props.label !== '' ? products.filter((item: productss) => item.label === props.label) : products;
+    const filterProduct = props.label !== 'All' ? products.filter((item) => item.label === props.label) : products;
     return (
         <div className=' slider-container   gap-5  items-center justify-center'>
             <Slider {...settings} className=''>
                 {
-                    filterProduct.map((item: productss) => (
-                        <div data-aos='fade-left' key={item.id} className='px-2'>
-                            < div className="border relative  border-gray-200 group font-[quicksand] rounded-xl hover:border-green-200 hover:shadow-md duration-500  ">
+                    filterProduct.map((item) => (
+                        <div
+                            onClick={() => navegite(`/shop/${item.id}`)}
+                            data-aos='fade-left' key={item.id} className='px-2'>
+                            < div className=" cursor-pointer border relative  border-gray-200 group font-[quicksand] rounded-xl hover:border-green-200 hover:shadow-md duration-500  ">
                                 <div className="p-4 relative">
                                     <img
                                         className="group-hover:scale-105 opacity-100 group-hover:opacity-0   duration-1000 "
@@ -100,9 +102,15 @@ function Silder(props: { label: string }) {
                                         <div className={`bg-green-600 w-25 h-1.5 rounded-lg absolute top-0`}></div>
                                     </div>
                                     <p className='text-sm mt-3 '>Sold: {item.sold}/{item.quantity}</p>
-                                    <div className='bg-[#3BB77E] flex items-center justify-center text-white py-2 rounded-md gap-2 hover:bg-yellow-500 duration-500 font-semibold mt-3'>
+                                    <div
+                                        onClick={(e) => (
+                                            e.stopPropagation(),
+                                            dispatch(increment(item.id),
+                                                toast("Add To Cart Successful", { position: 'top-right' })
+                                            ))}
+                                        className='bg-[#3BB77E] cursor-pointer active:scale-110 flex items-center justify-center text-white py-2 rounded-md gap-2 hover:bg-yellow-500 duration-500 font-semibold mt-3'>
                                         <IoCartOutline />
-                                        <button > Add To Cart</button>
+                                        <button className='cursor-pointer'> Add To Cart</button>
                                     </div>
                                 </div>
                                 <div className={`${item.labelColor} text-white w-12 px-2 flex justify-center items-center absolute top-0 rounded-tl-xl rounded-br-xl`}>

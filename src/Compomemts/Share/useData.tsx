@@ -2,27 +2,35 @@ import { useEffect, useState } from 'react'
 
 function useData() {
     const [categories, setCategories] = useState([])
+    const [products, setProduct] = useState([])
+    const [isLoading, setIsLoading] = useState(true)
+
     useEffect(() => {
         async function getData() {
-            const res = await fetch('/categories.json')
-            const { categories } = await res.json()
-            setCategories(categories)
+            setIsLoading(true)
+            try {
+                const [categoriesRes, productsRes] = await Promise.all([
+                    fetch('/categories.json'),
+                    fetch('/Product.json')
+                ])
+                
+                const [categoriesData, productsData] = await Promise.all([
+                    categoriesRes.json(),
+                    productsRes.json()
+                ])
+
+                setCategories(categoriesData.categories)
+                setProduct(productsData.products)
+            } catch (error) {
+                console.error('Error fetching data:', error)
+            } finally {
+                setIsLoading(false)
+            }
         }
         getData()
     }, [])
 
-    const [products, setProduct] = useState([])
-    useEffect(() => {
-        async function getData() {
-            const res = await fetch('/Product.json')
-            const { products } = await res.json()
-            setProduct(products)
-        }
-        getData();
-    }, [])
-
-
-    return [categories, products]
+    return [categories, products, isLoading]
 }
 
 export default useData

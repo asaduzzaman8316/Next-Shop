@@ -1,7 +1,9 @@
 import AOS from 'aos';
 import 'aos/dist/aos.css'
+import { useNavigate } from 'react-router';
 AOS.init()
 function ThreeCard({title, src}:{title:string, src:string}) {
+    const navigate = useNavigate()
     return (
         <div data-aos='fade-left' className='relative'>
             <img 
@@ -15,7 +17,8 @@ function ThreeCard({title, src}:{title:string, src:string}) {
                 </h1>
 
                 <button
-                className='mt-10 flex justify-between  items-center bg-[#51B877] text-white px-4 hover:pr-6 duration-500 group py-1.5 hover:bg-yellow-500 rounded-md'
+                onClick={()=>navigate('/shop')}
+                className='cursor-pointer mt-10 flex justify-between  items-center bg-[#51B877] text-white px-4 hover:pr-6 duration-500 group py-1.5 hover:bg-yellow-500 rounded-md'
                 >
                     Shop Now
                     <i className='fas fa-arrow-right group-hover:pl-4 duration-500 pl-2 text-sm'></i>

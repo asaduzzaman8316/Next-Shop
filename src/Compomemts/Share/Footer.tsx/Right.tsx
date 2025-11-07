@@ -9,14 +9,14 @@ function Right() {
 
       <div className='flex gap-2 mb-8 mt-5'>
         <img
-        className='w-28'
-         src="/app-store.jpg" alt="" />
+          className='w-28'
+          src="/app-store.jpg" alt="" />
         <img
-        className='w-28'
-         src="/google-play.jpg" alt="" />
+          className='w-28'
+          src="/google-play.jpg" alt="" />
       </div>
       <p className='text-sm pb-5 text-gray-600'>Secured Payment Gateways</p>
-      <img src="/public/payment-method.png" alt="" />
+      <img src="/payment-method.png" alt="" />
     </div>
   )
 }

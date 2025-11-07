@@ -1,9 +1,11 @@
 import AOS from 'aos';
 import 'aos/dist/aos.css'
+import Loader from '../../Loader/Loader';
 AOS.init()
 function Hero() {
     return (
         <div data-aos='zoom-out' className="lg:w-[80%]  relative 2xl:container mx-auto mb-20 mt-30">
+            <Loader/>
             <img
                 className="relative rounded-2xl"
                 src="/slider-1.png" alt="" />

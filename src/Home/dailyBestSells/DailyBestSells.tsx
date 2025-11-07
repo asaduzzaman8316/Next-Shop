@@ -3,7 +3,7 @@ import Silder from "./Silder"
 import Leftbox from "./Leftbox"
 
 function DailyBestSells() {
-    const [categories, setCategories] = useState('')
+    const [categories, setCategories] = useState('All')
     return (
         <div className='2xl:container mx-auto  py-12 lg-[80%]'>
             <div className="flex justify-between items-center pb-8">
