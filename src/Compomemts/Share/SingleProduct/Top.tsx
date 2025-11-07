@@ -7,6 +7,9 @@ import SingleProductDescription from "./SingleProductDescription";
 import RelatedProduct from "../RelatedProduct";
 import AOS from 'aos';
 import 'aos/dist/aos.css'
+import { useDispatch } from "react-redux";
+import { toast } from "react-toastify";
+import { increment } from "../../../Cart/counterSlice";
 AOS.init()
 interface detesls {
     id: string,
@@ -29,10 +32,19 @@ interface ProductHook {
     description: detesls[]
 }
 function Top({ id }: { id: string | undefined }) {
+    const dispatch = useDispatch()
     const { description } = useProduct() as ProductHook;
     const filterData: detesls | undefined = id && description
         ? description.find((item: detesls) => item.id === id)
         : undefined;
+
+    const productid = Number(id)
+
+    function handlerClick() {
+        dispatch(increment(productid))
+        toast("Add to Cart Successful", { position: 'top-right' })
+    }
+
 
     return (
         <div>
@@ -70,9 +82,12 @@ function Top({ id }: { id: string | undefined }) {
                                                 className="border outline-none rounded-md text-green-500 w-24 px-2 py-3 "
                                                 type="number" />
                                         </div>
-                                        <div className="border flex items-center gap-2 px-4 py-3 rounded-md bg-[#3BB77E] text-white text-lg cursor-pointer hover:bg-[#2cab67]">
+                                        <div
+                                            className="border  flex items-center gap-2 px-4 py-3 rounded-md bg-[#3BB77E] text-white text-lg cursor-pointer hover:bg-[#2cab67]">
                                             <IoCartOutline />
-                                            <button>Add to Cart</button>
+                                            <button
+                                                onClick={handlerClick}
+                                                className="cursor-pointer">Add to Cart</button>
                                         </div>
                                         <div className="border border-gray-200 size-12 flex justify-center items-center text-gray-400 hover:bg-[#3BB77E] hover:text-white hover:-translate-y-1 duration-500 rounded-md text-2xl"><CiHeart /></div>
                                         <div className="border border-gray-200 size-12 flex justify-center items-center text-gray-400 hover:bg-[#3BB77E] hover:text-white hover:-translate-y-1 duration-500 rounded-md text-2xl"><TbArrowsCross /></div>
@@ -108,7 +123,7 @@ function Top({ id }: { id: string | undefined }) {
                     <p>hello</p>
                 )
             }
-        </div>
+        </div >
     )
 }
 

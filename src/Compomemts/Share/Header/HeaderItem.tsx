@@ -24,10 +24,10 @@ function HeaderItem() {
                 <p className="text-green-600 text-sm">Your Location <i className="fas fa-angle-down text-gray-600 text-xs"></i></p>
             </div>
             <div className="flex items-center gap-5">
-                <Sidelogo Icon={IoIosGitCompare } name="Compare" count={count} />
-                <Sidelogo Icon={FaRegHeart } name="Wishlist" count={count} />
-                <Sidelogo Icon={IoCartOutline } name="Cart" count={count} />
-                <Sidelogo Icon={FaRegUser } name="Compare" />
+                <Sidelogo nav="./compare" Icon={IoIosGitCompare } name="Compare" count={count} />
+                <Sidelogo nav="/wishlist" Icon={FaRegHeart } name="Wishlist" count={count} />
+                <Sidelogo nav="/addtocart" Icon={IoCartOutline } name="Cart" count={count} />
+                <Sidelogo nav="/compare" Icon={FaRegUser } name="Compare" />
             </div>
         </div>
     )
