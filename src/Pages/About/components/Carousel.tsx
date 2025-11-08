@@ -28,7 +28,7 @@ function Carousel() {
     };
     return (
         <>
-            <div className='lg:hidden'>
+            <div className='lg:hidden overflow-hidden'>
                 <Slider {...settings}>
                     <div data-aos="zoom-in" className="px-2">
                         <img
@@ -78,7 +78,7 @@ function Carousel() {
                 </Slider>
             </div>
 
-            <div className='hidden lg:block'>
+            <div className='hidden lg:block overflow-hidden'>
                 <Slider {...settings2}>
                     <div data-aos="zoom-in" className="px-2">
                         <img

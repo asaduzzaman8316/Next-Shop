@@ -26,10 +26,10 @@ function RelatedProduct({ id }: { id: number | undefined }) {
 
     const filterProduct = id !== undefined ? products.filter((item: productss) => item.categoryId === id) : products;
     return (
-        <div className="flex items-center gap-3">
+        <div className="flex flex-col lg:flex-row items-center gap-3">
             {
                 filterProduct.slice(0, 4).map((item: productss) => (
-                    (< div data-aos='fade-up' key={item.id} className="border relative border-gray-200 group font-[quicksand] rounded-xl hover:border-green-200 hover:shadow-md duration-500 mt-14 w-52 ml-4">
+                    (< div data-aos='fade-up' key={item.id} className="border relative border-gray-200 group font-[quicksand] rounded-xl hover:border-green-200 hover:shadow-md duration-500 mt-14 lg:w-52 w-90 ml-4">
                         <div className="p-4 relative">
                             <img
                                 className="group-hover:scale-105 opacity-100 group-hover:opacity-0  duration-1000 "
@@ -43,7 +43,7 @@ function RelatedProduct({ id }: { id: number | undefined }) {
 
                         </div>
                         <div
-                            className={`border flex w-[50%] bg-white border-green-200 justify-between px-2 py-1 rounded-lg absolute text-green-500  mx-auto divide-x  top-[30%] left-[25%] duration-500 transition-all opacity-0 group-hover:opacity-100`}>
+                            className={`border flex lg:w-[50%] bg-white border-green-200 justify-between px-2 py-1 rounded-lg absolute text-green-500  mx-auto divide-x  top-[30%] left-[25%] duration-500 transition-all opacity-0 group-hover:opacity-100`}>
                             <div className="flex-1 flex justify-center items-center py-2">
                                 <FaRegHeart />
                             </div>

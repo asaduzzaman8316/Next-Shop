@@ -66,7 +66,7 @@ function Silder(props: { label: string }) {
     const filterProduct = props.label !== 'All' ? products.filter((item: productss) => item.label === props.label) : products;
     return (
         <>
-            <div className=' slider-container  hidden lg:block  gap-5  items-center justify-center'>
+            <div className=' slider-container  hidden overflow-hidden lg:block  gap-5  items-center justify-center'>
                 <Slider {...settings} className=''>
                     {
                         filterProduct.map((item: productss) => (
@@ -137,7 +137,7 @@ function Silder(props: { label: string }) {
             </div>
 
             {/* aita mobile device ar jonno */}
-            <div className="slider-container lg:hidden w-full px-2 lg:px-8">
+            <div className="slider-container overflow-hidden lg:hidden w-full px-2 lg:px-8">
                 <Slider {...settings2}>
                     {filterProduct.map((item: productss) => (
                         <div

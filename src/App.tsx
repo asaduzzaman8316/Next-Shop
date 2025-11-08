@@ -9,15 +9,15 @@ import { Provider } from "react-redux"
 
 function App() {
   return (
-
     <Provider store={store}>
-      <Header />
-      <main className="min-h-screen">
-        <Outlet />
-      </main>
-      <Footer />
+      <div className="overflow-x-hidden relative w-full">
+        <Header />
+        <main className="min-h-screen">
+          <Outlet />
+        </main>
+        <Footer />
+      </div>
     </Provider>
-
   )
 }
 

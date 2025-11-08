@@ -51,11 +51,11 @@ function Top({ id }: { id: string | undefined }) {
             {
                 filterData ? (
                     <>
-                        <div className=" flex w-full gap-8 p-4 font-[quicksand] font-semibold">
-                            <div data-aos='zoom-in-right' className="w-[50%] border border-gray-200 rounded-xl">
+                        <div className=" flex flex-col items-center lg:flex-row w-full gap-8 p-4 font-[quicksand] font-semibold">
+                            <div data-aos='zoom-in-right' className="lg:w-[50%] border border-gray-200 rounded-xl">
                                 <img src={filterData.image1} alt="" />
                             </div>
-                            <div data-aos='zoom-in-down' className="w-[50%] ">
+                            <div data-aos='zoom-in-down' className="lg:w-[50%] ">
                                 <div className="">
                                     <p className="bg-red-100 text-red-500 text-sm  rounded-md font-bold w-18 py-1 text-center mb-4">{filterData.stockStatus}</p>
                                     <h1 className="text-4xl font-bold text-gray-800 mb-4">{filterData.name}</h1>
@@ -120,7 +120,7 @@ function Top({ id }: { id: string | undefined }) {
                         <RelatedProduct id={filterData.categoryId} />
                     </>
                 ) : (
-                    <p>hello</p>
+                    <p className="text-5xl text-red-500">Item Do not Find</p>
                 )
             }
         </div >

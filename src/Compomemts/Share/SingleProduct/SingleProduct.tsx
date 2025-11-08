@@ -5,6 +5,8 @@ import NewProduct from "../../../Pages/Shop/components/NewProduct"
 import Card from "../../../Pages/Shop/components/Card"
 import Top from "./Top"
 import { useParams } from "react-router"
+import SubScribe from "../Subscribe"
+import LastService from "../LastService"
 
 
 function SingleProduct() {
@@ -13,11 +15,11 @@ function SingleProduct() {
     return (
         <div className="mx-auto lg:w-[70%] py-16">
             <div className="grid grid-cols-7 ">
-                <div className="col-span-5">
+                <div className="lg:col-span-5 col-span-7">
                     <Top id={id} />
-                    
+
                 </div>
-                <div className='col-span-2 mt-8  space-y-8'>
+                <div className='lg:col-span-2 col-span-7 w-[80%]  mx-auto mt-8  space-y-8'>
 
                     <Category setCid={setCId} />
                     <FillByPrice />
@@ -25,6 +27,8 @@ function SingleProduct() {
                     <Card />
                 </div>
             </div>
+            <SubScribe src="/banner-9.png" />
+            <LastService />
         </div>
     )
 }
