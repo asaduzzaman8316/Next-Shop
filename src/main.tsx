@@ -9,7 +9,7 @@ import About from './Pages/About/About.tsx';
 import Shoop from './Pages/Shop/Shoop.tsx';
 import SingleProduct from './Compomemts/Share/SingleProduct/SingleProduct.tsx';
 import AddtoCart from './Pages/Add To Cart/AddtoCart.tsx';
-import NotFound from './NotFound.tsx';
+import No404Page from './Compomemts/Share/No404Page.tsx';
 
 const router = createBrowserRouter([
     {
@@ -38,7 +38,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '*',
-                element: <NotFound />
+                element: <No404Page />
             }
 
         ]

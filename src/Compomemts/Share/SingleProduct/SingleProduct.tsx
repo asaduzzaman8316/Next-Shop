@@ -13,23 +13,25 @@ function SingleProduct() {
     const { id } = useParams()
     const [, setCId] = useState<number>(0)
     return (
-        <div className="mx-auto lg:w-[70%] py-16">
-            <div className="grid grid-cols-7 ">
-                <div className="lg:col-span-5 col-span-7">
-                    <Top id={id} />
+        <>
+            <div className="mx-auto lg:w-[70%] py-16">
+                <div className="grid grid-cols-7 ">
+                    <div className="lg:col-span-5 col-span-7">
+                        <Top id={id} />
 
-                </div>
-                <div className='lg:col-span-2 col-span-7 w-[80%]  mx-auto mt-8  space-y-8'>
+                    </div>
+                    <div className='lg:col-span-2 col-span-7 w-[80%]  mx-auto mt-8  space-y-8'>
 
-                    <Category setCid={setCId} />
-                    <FillByPrice />
-                    <NewProduct />
-                    <Card />
+                        <Category setCid={setCId} />
+                        <FillByPrice />
+                        <NewProduct />
+                        <Card />
+                    </div>
                 </div>
             </div>
             <SubScribe src="/banner-9.png" />
             <LastService />
-        </div>
+        </>
     )
 }
 
