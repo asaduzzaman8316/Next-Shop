@@ -39,7 +39,7 @@ function DealsOfDay() {
     return (
         <div className='2xl:container mx-auto lg:w-[80%] mt-16 mb-24'>
             <h1 className='text-3xl font-[quicksand] font-bold'>Deals Of The Day</h1>
-            <div className='flex gap-5 justify-between items-center mt-5'>
+            <div className='grid lg:grid-cols-4 gap-36 lg:gap-5 justify-between items-center mt-5'>
                 {
                     dataa.map((item, idx) => (
                         <Card key={idx} props={item}/>

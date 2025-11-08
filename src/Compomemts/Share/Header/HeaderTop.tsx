@@ -23,8 +23,8 @@ function HeaderTop() {
     ];
 
     return (
-        <div className="border-b border-gray-300">
-            <div className="flex justify-between items-center py-1 2xl:container lg:w-[80%] mx-auto">
+        <div className="hidden sm:block border-b border-gray-300">
+            <div className="flex justify-between items-center py-1 2xl:container lg:w-[80%] mx-auto px-4">
                 <div className="space-x-3">
                     {
                         data.map((item, idx) => (

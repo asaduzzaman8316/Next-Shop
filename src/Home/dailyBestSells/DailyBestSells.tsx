@@ -5,30 +5,30 @@ import Leftbox from "./Leftbox"
 function DailyBestSells() {
     const [categories, setCategories] = useState('All')
     return (
-        <div className='2xl:container mx-auto  py-12 lg-[80%]'>
-            <div className="flex justify-between items-center pb-8">
-                <h1 className="font-[quicksand] text-3xl font-bold text-gray-800 leading-2">Daily Best Sells</h1>
-                <div className="flex gap-3 items-center font-[quicksand] font-semibold text-gray-600">
-                    <p
-                        className={`cursor-pointer hover:-translate-y-1 duration-500 hover:text-green-600`}
+        <div className='container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12'>
+            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 sm:gap-0 pb-6 sm:pb-8">
+                <h1 className="font-[quicksand] text-2xl sm:text-3xl font-bold text-gray-800">Daily Best Sells</h1>
+                <div className="flex flex-wrap gap-4 items-center font-[quicksand] font-semibold text-gray-600">
+                    <button
+                        className={`${categories === 'sale' ? 'text-green-600' : ''} cursor-pointer hover:text-green-600 transition-colors duration-300`}
                         onClick={() => setCategories('sale')}
-                    >Featured</p>
-                    <p
-                        className={`cursor-pointer hover:-translate-y-1 duration-500 hover:text-green-600`}
+                    >Featured</button>
+                    <button
+                        className={`${categories === 'hot' ? 'text-green-600' : ''} cursor-pointer hover:text-green-600 transition-colors duration-300`}
                         onClick={() => setCategories('hot')}
-                    >Popular</p>
-                    <p
-                        className={`cursor-pointer hover:-translate-y-1 duration-500 hover:text-green-600`}
+                    >Popular</button>
+                    <button
+                        className={`${categories === 'new' ? 'text-green-600' : ''} cursor-pointer hover:text-green-600 transition-colors duration-300`}
                         onClick={() => setCategories('new')}
-                    >New added</p>
+                    >New added</button>
                 </div>
             </div>
 
-            <div className="grid grid-cols-12 items-center">
-                <div className="col-span-3">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+                <div className="lg:col-span-3">
                     <Leftbox />
                 </div>
-                <div className="col-span-9  ">
+                <div className="lg:col-span-9">
                     <Silder label={categories} />
                 </div>
             </div>

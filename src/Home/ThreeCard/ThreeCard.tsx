@@ -5,23 +5,23 @@ AOS.init()
 function ThreeCard({title, src}:{title:string, src:string}) {
     const navigate = useNavigate()
     return (
-        <div data-aos='fade-left' className='relative'>
+        <div data-aos='fade-left' className='relative group overflow-hidden rounded-xl'>
             <img 
-            className='rounded-xl'
-            src={src} alt="" />
-            <div className='absolute top-20 px-10 w-[80%] text-gray-700'>
-                <h1
-                    className={`text-2xl font-[quicksand font-bold hover:-translate-y-1 duration-500`}
-                >
+                className='rounded-xl w-full h-auto object-cover'
+                src={src} 
+                alt={title}
+            />
+            <div className='absolute inset-0 flex flex-col justify-center px-4 sm:px-6 lg:px-8 text-gray-700'>
+                <h1 className='text-xl sm:text-2xl lg:text-3xl font-[quicksand] font-bold transform group-hover:-translate-y-1 duration-500'>
                     {title}
                 </h1>
 
                 <button
-                onClick={()=>navigate('/shop')}
-                className='cursor-pointer mt-10 flex justify-between  items-center bg-[#51B877] text-white px-4 hover:pr-6 duration-500 group py-1.5 hover:bg-yellow-500 rounded-md'
+                    onClick={() => navigate('/shop')}
+                    className='inline-flex items-center self-start mt-4 sm:mt-6 bg-[#51B877] text-white px-4 py-2 rounded-md hover:bg-yellow-500 transition-all duration-300 group/btn'
                 >
-                    Shop Now
-                    <i className='fas fa-arrow-right group-hover:pl-4 duration-500 pl-2 text-sm'></i>
+                    <span>Shop Now</span>
+                    <i className='fas fa-arrow-right ml-2 group-hover/btn:ml-3 transition-all duration-300 text-sm'></i>
                 </button>
             </div>
         </div>

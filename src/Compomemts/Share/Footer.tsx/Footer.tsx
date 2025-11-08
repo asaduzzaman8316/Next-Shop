@@ -41,14 +41,33 @@ function Footer() {
         "Cheese"
     ]
     return (
-        <div >
-            <div className="2xl:container lg:w-[80%] pb-16 mx-auto mt-16 grid grid-cols-6 gap-3">
-                <Left />
-                <Menu title="Company" props={company} />
-                <Menu title="Account" props={Account} />
-                <Menu title="Corporate" props={Corporate} />
-                <Menu title="Popular" props={Popular} />
-                <Right />
+        <div className="bg-white">
+            <div className="container mx-auto px-4 pb-12 mt-16">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+                    <div className="col-span-1">
+                        <Left />
+                    </div>
+
+                    <div className="col-span-1">
+                        <Menu title="Company" props={company} />
+                    </div>
+
+                    <div className="col-span-1">
+                        <Menu title="Account" props={Account} />
+                    </div>
+
+                    <div className="col-span-1">
+                        <Menu title="Corporate" props={Corporate} />
+                    </div>
+
+                    <div className="col-span-1">
+                        <Menu title="Popular" props={Popular} />
+                    </div>
+
+                    <div className="col-span-1">
+                        <Right />
+                    </div>
+                </div>
             </div>
         </div>
     )

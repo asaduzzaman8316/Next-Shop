@@ -66,13 +66,13 @@ function ProductCard(props: { id?: number }) {
                         </div>
                         <div className="px-4 pb-5">
                             <Link to={`/shop/${item.id}`}>
-                                <h1 className=" leading-5 text-gray-700 font-bold line-clamp-1 w-56 hover:text-green-600 duration-300">{item.name}</h1>
+                                <h1 className=" leading-5 text-gray-700 font-bold line-clamp-1 text-xl lg:text-base w-56 hover:text-green-600 duration-300">{item.name}</h1>
                             </Link>
                             <RaringWithP rating={item.rating} />
-                            <p className="text-gray-400 text-base">By <span className="text-green-600 hover:text-yellow-400 duration-300">{item.brand}</span></p>
+                            <p className="text-gray-400 text-xl lg:text-base">By <span className="text-green-600 hover:text-yellow-400 duration-300">{item.brand}</span></p>
                             <PriceWithButton id={item.id} currentPrice={item.currentPrice} previousPrice={item.previousPrice} />
                         </div>
-                        <div className={`${item.labelColor} text-white w-12 px-2 flex justify-center items-center absolute top-0 rounded-tl-xl rounded-br-xl`}>
+                        <div className={`${item.labelColor} text-white w-24 lg:w-12 px-2 flex justify-center items-center absolute top-0 rounded-tl-xl rounded-br-xl`}>
                             <p>{item.label}</p>
                         </div>
                     </div>)

@@ -1,4 +1,4 @@
-import { IoIosGitCompare } from "react-icons/io";
+
 import { FaRegHeart } from "react-icons/fa";
 import { IoCartOutline } from "react-icons/io5";
 import { FaRegUser } from "react-icons/fa6";
@@ -12,22 +12,27 @@ import type { RootState } from "../../../Redux/store";
 function HeaderItem() {
     const count = useSelector((state: RootState) => state.counter.value)
     return (
-        <div className="2xl:container lg:w[80%] mx-auto py-8 flex justify-between items-center">
-            <div className="w-50">
-                <img src="/logo.svg" alt="" />
+        <div className="2xl:container lg:w-[80%] mx-auto py-6 px-4 flex  sm:flex-row items-start sm:items-center justify-between gap-4">
+            <div className="flex items-center w-full sm:w-auto justify-between">
+                <div className="lg:w-36 w-28">
+                    <img src="/logo.svg" alt="" />
+                </div>
+                <div className="sm:hidden">
+                </div>
             </div>
-            <div className="w-150">
+            <div className="hidden md:flex flex-1 px-4">
                 <Search />
             </div>
-            <div className="border flex items-center px-4 py-2 rounded-lg border-gray-300 gap-1">
-                <CiLocationOn />
-                <p className="text-green-600 text-sm">Your Location <i className="fas fa-angle-down text-gray-600 text-xs"></i></p>
-            </div>
-            <div className="flex items-center gap-5">
-                <Sidelogo nav="./compare" Icon={IoIosGitCompare } name="Compare" count={count} />
-                <Sidelogo nav="/wishlist" Icon={FaRegHeart } name="Wishlist" count={count} />
-                <Sidelogo nav="/addtocart" Icon={IoCartOutline } name="Cart" count={count} />
-                <Sidelogo nav="/compare" Icon={FaRegUser } name="Compare" />
+            <div className="flex items-center gap-3 ml-auto">
+                <div className="hidden md:flex items-center border px-3 py-2 rounded-lg border-gray-300 gap-2">
+                    <CiLocationOn />
+                    <p className="text-green-600 text-sm">Your Location <i className="fas fa-angle-down text-gray-600 text-xs"></i></p>
+                </div>
+                <div className="flex items-center gap-4">
+                    <Sidelogo nav="/wishlist" Icon={FaRegHeart} name="Wishlist" count={count} />
+                    <Sidelogo nav="/addtocart" Icon={IoCartOutline} name="Cart" count={count} />
+                    <Sidelogo nav="/compare" Icon={FaRegUser} name="Account" />
+                </div>
             </div>
         </div>
     )
