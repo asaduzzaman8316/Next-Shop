@@ -22,13 +22,20 @@ export const counterSlice = createSlice({
     decrement: (state) => {
       state.value -= 1
     },
-    incrementByAmount: (state, action: PayloadAction<number>) => {
-      state.value += action.payload
+    productIdEmpty: (state) => {
+      state.productId.length =0;
+      state.value=0;
     },
+    singleProductDelete:(state, action:PayloadAction<number>)=>{
+      const filterProduct = state.productId.filter(item => item !== action.payload)
+      state.productId.length =0;
+      state.value-=1;
+      state.productId.push(...filterProduct);
+    }
   },
 })
 
 // Action creators are generated for each case reducer function
-export const { increment, decrement, incrementByAmount } = counterSlice.actions
+export const { increment, decrement, productIdEmpty,singleProductDelete } = counterSlice.actions
 
 export default counterSlice.reducer
