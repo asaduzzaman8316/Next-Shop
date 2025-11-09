@@ -13,6 +13,7 @@ AOS.init()
 const page = () => {
     return (
         <div data-aos='fade-down' className='container px-2 lg:px-0 mx-auto'>
+            <title>Asad Mart | About</title>
             <AboutHero />
             <Sixbox />
             <Performance />

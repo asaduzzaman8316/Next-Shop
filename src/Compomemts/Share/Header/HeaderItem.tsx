@@ -25,10 +25,11 @@ function HeaderItem() {
         getData()
     }, [])
     return (
-        <div className="container mx-auto py-6 px-4 flex  sm:flex-row items-start sm:items-center justify-between gap-4">
+        <div className="container mx-auto py-4 px-4 flex  sm:flex-row items-start sm:items-center justify-between gap-4">
             <div className="flex items-center w-full sm:w-auto justify-between">
-                <div className="lg:w-36 w-28">
-                    <p className="text-4xl font-[quicksand] font-semibold">Asad<span className="text-xl text-green-700">uzzaman</span></p>
+                <div className="lg:w-20  w-16">
+                    {/* <p className="text-4xl font-[quicksand] font-semibold">Asad<span className="text-xl text-green-700">uzzaman</span></p> */}
+                    <img className="rounded-full" src="/logo.png" alt="" />
                 </div>
                 <div className="sm:hidden">
                 </div>

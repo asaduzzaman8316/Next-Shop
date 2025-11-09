@@ -4,8 +4,9 @@ AOS.init()
 function Left() {
   return (
     <div data-aos='fade-right' className="space-y-3">
-      <p className="text-4xl font-[quicksand] font-semibold">Asad<span className="text-xl text-green-700">uzzaman</span></p>
-      <p>Awesome grocery store website template</p>
+      {/* <p className="text-4xl font-[quicksand] font-semibold">Asad<span className="text-xl text-green-700">uzzaman</span></p>
+      <p>Awesome grocery store website template</p> */}
+      <img className="  w-24" src="/logo.png" alt="" />
 
       <div className="space-y-3 text-sm pt-5">
 

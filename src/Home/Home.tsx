@@ -12,6 +12,7 @@ import ThreeCard from './ThreeCard/ThreeCard'
 function Home() {
   return (
     <div className="px-4">
+      <title>Asad Mart | Home</title>
       <Hero />
       <FeaturedCategories />
       {/* this is for three card section  */}

@@ -89,6 +89,7 @@ function AddtoCart() {
 
     return (
         <div className='container mx-auto py-16 px-4 font-[quicksand] grid grid-cols-1 lg:grid-cols-3 gap-6'>
+            <title>Asad Mart | Add To Cart</title>
             <div className='lg:col-span-2'>
                 <h1 className='text-5xl text-gray-700 font-bold'>Your Cart</h1>
                 <div className='flex justify-between items-center'>
