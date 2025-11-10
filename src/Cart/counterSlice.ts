@@ -42,13 +42,22 @@ export const counterSlice = createSlice({
         state.categoryId = action.payload
       },
       setWishlist:(state, action:PayloadAction<number>)=>{
-        state.wishlist += 1
-        state.wishlistProductId.push(action.payload)
+        const wdata = state.wishlistProductId.find((item) => item===  action.payload)
+        if(wdata === undefined){
+          state.wishlist += 1
+          state.wishlistProductId.push(action.payload)
+        }
+      }
+      ,removeWishlist:(state, action:PayloadAction<number>)=>{
+        const removedid = state.wishlistProductId.filter(i => i !== action.payload)
+        state.wishlistProductId.length =0;
+        state.wishlistProductId.push(...removedid)
+        state.wishlist = state.wishlistProductId.length
       }
   },
 })
 
 // Action creators are generated for each case reducer function
-export const { increment, decrement, productIdEmpty,singleProductDelete, setCategoryId, setWishlist } = counterSlice.actions
+export const { increment, decrement, productIdEmpty,singleProductDelete, setCategoryId, setWishlist, removeWishlist } = counterSlice.actions
 
 export default counterSlice.reducer

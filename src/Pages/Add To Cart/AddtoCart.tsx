@@ -90,155 +90,157 @@ function AddtoCart() {
     }
 
     return (
-        <div className='container mx-auto py-16 px-4 font-[quicksand] grid grid-cols-1 lg:grid-cols-3 gap-6'>
-            <title>Asad Mart | Add To Cart</title>
-            <div className='lg:col-span-2'>
-                <h1 className='text-5xl text-gray-700 font-bold'>Your Cart</h1>
-                <div className='flex justify-between items-center'>
-                    <p className='py-5 text-xs lg:text-base font-semibold text-gray-500 tracking-tight'>
-                        There are <span className='text-green-600 text-base'>{count}</span> products in your cart
-                    </p>
-                    <button
-                        onClick={deleteAll}
-                        className='flex cursor-pointer hover:text-red-400 items-center gap-2 font-bold text-gray-400'>
-                        <RiDeleteBin6Line />
-                        Clear Cart
-                    </button>
-                </div>
-
-                <div className='border border-gray-200 rounded-md mt-5'>
-                    <div className='flex justify-between items-center lg:text-base text-xs font-bold text-gray-700 lg:p-4 bg-gray-100 p-1'
-                    >
-                        <div className='flex items-center  gap-1 lg:gap-4'>
-                            <input type="checkbox" />
-                            <p>Product</p>
-                        </div>
-                        <div className='flex items-center lg:gap-24 gap-4'>
-                            <div className='flex items-center whitespace-nowrap gap-1 lg:gap-4'>
-                                <p>Unit Price</p>
-                                <p>Quantity</p>
-                            </div>
-                            <div className='flex items-center gap-1 lg:gap-4'>
-                                <p>Subtotal</p>
-                                <p>Remove</p>
-                            </div>
-                        </div>
+        <div>
+            <div className='container mx-auto py-16 px-4 font-[quicksand] grid grid-cols-1 lg:grid-cols-3 gap-6'>
+                <title>Asad Mart | Add To Cart</title>
+                <div className='lg:col-span-2'>
+                    <h1 className='text-5xl text-gray-700 font-bold'>Your Cart</h1>
+                    <div className='flex justify-between items-center'>
+                        <p className='py-5 text-xs lg:text-base font-semibold text-gray-500 tracking-tight'>
+                            There are <span className='text-green-600 text-base'>{count}</span> products in your cart
+                        </p>
+                        <button
+                            onClick={deleteAll}
+                            className='flex cursor-pointer hover:text-red-400 items-center gap-2 font-bold text-gray-400'>
+                            <RiDeleteBin6Line />
+                            Clear Cart
+                        </button>
                     </div>
 
-                    {cartItems.map((item) => (
-                        <div key={item.id} className='border-b border-gray-200 flex  items-start lg:items-center pr-0 lg:pr-8 py-4'>
-                            <div className='w-full flex items-center lg:px-4 gap-4'>
-                                <input type="checkbox" className='mt-2 lg:mt-0' />
-
-                                <div className='lg:flex items-center gap-3'>
-                                    <img
-                                        className='w-20 h-20 sm:w-24 sm:h-24 border border-gray-200 rounded-2xl'
-                                        src={item.image1}
-                                        alt={item.name}
-                                    />
-                                    <div>
-                                        <h1
-                                            onClick={() => navigate(`/shop/${item.id}`)}
-                                            className='font-semibold text-xs pt-2 lg:pt-0 lg:text-base hover:text-yellow-500 text-gray-700'>{item.name}</h1>
-                                        <RaringWithP rating={item.rating} />
-                                    </div>
-                                </div>
+                    <div className='border border-gray-200 rounded-md mt-5'>
+                        <div className='flex justify-between items-center lg:text-base text-xs font-bold text-gray-700 lg:p-4 bg-gray-100 p-1'
+                        >
+                            <div className='flex items-center  gap-1 lg:gap-4'>
+                                <input type="checkbox" />
+                                <p>Product</p>
                             </div>
-                            <div className='w-full lg:w-auto mt-4 lg:mt-0 flex items-start justify-between gap-4'>
-                                <div className='flex items-center gap-4 lg:gap-8 '>
-                                    <div className='lg:text-xl text-base sm:text-2xl font-bold text-gray-500'>
-                                        ${item.currentPrice.toFixed(2)}
-                                    </div>
-                                    <div className='lg:pr-24'>
-                                        <input
-                                            onChange={(e) =>
-                                                handleQuantityChange(item.id, Number(e.target.value))
-                                            }
-                                            value={item.quantity}
-                                            className='border w-10 lg:w-16 text-center border-green-600 outline-none font-semibold text-black px-2 py-2 rounded-md '
-                                            type="number"
-                                            min={1}
-                                        />
-                                    </div>
+                            <div className='flex items-center lg:gap-24 gap-4'>
+                                <div className='flex items-center whitespace-nowrap gap-1 lg:gap-4'>
+                                    <p>Unit Price</p>
+                                    <p>Quantity</p>
                                 </div>
-                                <div className='flex items-center gap-4 '>
-                                    <div className='text-xl sm:text-2xl font-bold text-center text-green-500'>
-                                        ${(item.currentPrice * item.quantity).toFixed(2)}
-                                    </div>
-                                    <div
-                                        onClick={() => deleteOne(item.id, item.quantity)}
-                                        className='cursor-pointer text-gray-600 hover:text-red-500 p-2'
-                                    >
-                                        <RiDeleteBin6Line />
-                                    </div>
+                                <div className='flex items-center gap-1 lg:gap-4'>
+                                    <p>Subtotal</p>
+                                    <p>Remove</p>
                                 </div>
                             </div>
                         </div>
-                    ))}
-                </div>
-                <div className={`flex   mt-8 font-semibold text-sm   text-white  sm:w-auto `}>
 
-                    <button
-                        onClick={() => navigate('/shop')}
-                        className={`ml-2 bg-[#3BB77E] w-full py-3 hover:bg-yellow-500 duration-500 rounded-md cursor-pointer  flex  items-center justify-center gap-2 
+                        {cartItems.map((item) => (
+                            <div key={item.id} className='border-b border-gray-200 flex  items-start lg:items-center pr-0 lg:pr-8 py-4'>
+                                <div className='w-full flex items-center lg:px-4 gap-4'>
+                                    <input type="checkbox" className='mt-2 lg:mt-0' />
+
+                                    <div className='lg:flex items-center gap-3'>
+                                        <img
+                                            className='w-20 h-20 sm:w-24 sm:h-24 border border-gray-200 rounded-2xl'
+                                            src={item.image1}
+                                            alt={item.name}
+                                        />
+                                        <div>
+                                            <h1
+                                                onClick={() => navigate(`/shop/${item.id}`)}
+                                                className='font-semibold text-xs pt-2 lg:pt-0 lg:text-base hover:text-yellow-500 text-gray-700'>{item.name}</h1>
+                                            <RaringWithP rating={item.rating} />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className='w-full lg:w-auto mt-4 lg:mt-0 flex items-start justify-between gap-4'>
+                                    <div className='flex items-center gap-4 lg:gap-8 '>
+                                        <div className='lg:text-xl text-base sm:text-2xl font-bold text-gray-500'>
+                                            ${item.currentPrice.toFixed(2)}
+                                        </div>
+                                        <div className='lg:pr-24'>
+                                            <input
+                                                onChange={(e) =>
+                                                    handleQuantityChange(item.id, Number(e.target.value))
+                                                }
+                                                value={item.quantity}
+                                                className='border w-10 lg:w-16 text-center border-green-600 outline-none font-semibold text-black px-2 py-2 rounded-md '
+                                                type="number"
+                                                min={1}
+                                            />
+                                        </div>
+                                    </div>
+                                    <div className='flex items-center gap-4 '>
+                                        <div className='text-xl sm:text-2xl font-bold text-center text-green-500'>
+                                            ${(item.currentPrice * item.quantity).toFixed(2)}
+                                        </div>
+                                        <div
+                                            onClick={() => deleteOne(item.id, item.quantity)}
+                                            className='cursor-pointer text-gray-600 hover:text-red-500 p-2'
+                                        >
+                                            <RiDeleteBin6Line />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                    <div className={`flex   mt-8 font-semibold text-sm   text-white  sm:w-auto `}>
+
+                        <button
+                            onClick={() => navigate('/shop')}
+                            className={`ml-2 bg-[#3BB77E] w-full py-3 hover:bg-yellow-500 duration-500 rounded-md cursor-pointer  flex  items-center justify-center gap-2 
                             
                             `}
-                    >
-                        <FaArrowLeft />
-                        Continue Shopping
-                    </button>
-                </div>
-            </div>
-
-            <div className={`${count !== 0 ? 'block' : 'hidden'}`}>
-                <div className='border space-y-5 border-gray-200 rounded-md mt-8 lg:mt-32 lg:col-span-1 p-4'>
-                    <div className='border border-gray-200 rounded-md '>
-                        <div className='flex  p-2 justify-between items-center'>
-                            <p className='text-lg font-semibold text-gray-400'>Subtotal</p>
-                            <p className='text-xl text-green-600 font-bold'>${subTotal.toFixed(2)}</p>
-                        </div>
-                    </div>
-
-                    <div className='border border-gray-200 rounded-md '>
-                        <div className='flex  p-2 justify-between items-center'>
-                            <p className='text-lg font-semibold text-gray-400'>Shipping</p>
-                            <p className='text-xl  font-bold'>Free</p>
-                        </div>
-                    </div>
-
-                    <div className='border border-gray-200 rounded-md '>
-                        <div className='flex  p-2 justify-between items-center'>
-                            <p className='text-lg font-semibold text-gray-400'>Estimate for</p>
-                            <p className='text-xl  font-bold'>7 days</p>
-                        </div>
-                    </div>
-
-                    <div className='border border-gray-200 rounded-md '>
-                        <div className='flex  p-2 justify-between items-center'>
-                            <p className='text-lg font-semibold text-gray-400'>Total</p>
-                            <p className='text-xl text-green-600 font-bold'>${subTotal.toFixed(2)}</p>
-                        </div>
-                    </div>
-                    <div className='bg-[#3BB77E] h-10  py-2 flex items-center justify-center text-white  font-semibold rounded-md gap-2 hover:bg-yellow-500 duration-500'>
-                        <button
-                            onClick={() => (
-                                setBtnText(''),
-                                setAnimation(true),
-                                setTimeout(() => {
-                                    setBtnText("Proced to CheckOut")
-                                    setAnimation(false)
-                                }, 1000)
-                            )}
-                            className='peer'>{btnText} </button>
-                        <div className={`-translate-x-80 ${animatin && 'translate-x-0'} duration-500 `}>
-                            <IoExitOutline />
-                        </div>
+                        >
+                            <FaArrowLeft />
+                            Continue Shopping
+                        </button>
                     </div>
                 </div>
-            </div>
+
+                <div className={`${count !== 0 ? 'block' : 'hidden'}`}>
+                    <div className='border space-y-5 border-gray-200 rounded-md mt-8 lg:mt-32 lg:col-span-1 p-4'>
+                        <div className='border border-gray-200 rounded-md '>
+                            <div className='flex  p-2 justify-between items-center'>
+                                <p className='text-lg font-semibold text-gray-400'>Subtotal</p>
+                                <p className='text-xl text-green-600 font-bold'>${subTotal.toFixed(2)}</p>
+                            </div>
+                        </div>
+
+                        <div className='border border-gray-200 rounded-md '>
+                            <div className='flex  p-2 justify-between items-center'>
+                                <p className='text-lg font-semibold text-gray-400'>Shipping</p>
+                                <p className='text-xl  font-bold'>Free</p>
+                            </div>
+                        </div>
+
+                        <div className='border border-gray-200 rounded-md '>
+                            <div className='flex  p-2 justify-between items-center'>
+                                <p className='text-lg font-semibold text-gray-400'>Estimate for</p>
+                                <p className='text-xl  font-bold'>7 days</p>
+                            </div>
+                        </div>
+
+                        <div className='border border-gray-200 rounded-md '>
+                            <div className='flex  p-2 justify-between items-center'>
+                                <p className='text-lg font-semibold text-gray-400'>Total</p>
+                                <p className='text-xl text-green-600 font-bold'>${subTotal.toFixed(2)}</p>
+                            </div>
+                        </div>
+                        <div className='bg-[#3BB77E] h-10  py-2 flex items-center justify-center text-white  font-semibold rounded-md gap-2 hover:bg-yellow-500 duration-500'>
+                            <button
+                                onClick={() => (
+                                    setBtnText(''),
+                                    setAnimation(true),
+                                    setTimeout(() => {
+                                        setBtnText("Proced to CheckOut")
+                                        setAnimation(false)
+                                    }, 1000)
+                                )}
+                                className='peer'>{btnText} </button>
+                            <div className={`-translate-x-80 ${animatin && 'translate-x-0'} duration-500 `}>
+                                <IoExitOutline />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div >
             <SubScribe src='/banner-13.png' />
             <LastService />
-        </div >
+        </div>
     )
 }
 

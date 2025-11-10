@@ -12,6 +12,7 @@ import Loader from "../../Loader/Loader";
 AOS.init()
 import { setWishlist } from "../../Cart/counterSlice";
 import { useDispatch } from "react-redux";
+import { toast } from "react-toastify";
 type productss = {
     name: string,
     id: number,
@@ -33,6 +34,7 @@ function ProductCard(props: { id?: number }) {
 
     function handlerWishlist(id: number) {
         dispatch(setWishlist(id))
+        toast('Wishilist Add Successful', {position:"top-right"})
     }
 
     if (isLoading) {
@@ -65,7 +67,7 @@ function ProductCard(props: { id?: number }) {
                             </Link>
                         </div>
 
-                        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-4/5 sm:w-3/5 opacity-0 group-hover:opacity-100 transition-all duration-300">
+                        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-4/5 sm:w-3/5 opacity-100 lg:opacity-0 group-hover:opacity-100 transition-all duration-300">
                             <div className="flex justify-between bg-white border border-green-200 rounded-lg divide-x divide-green-100 shadow-lg">
                                 <button
                                     onClick={() => handlerWishlist(item.id)}

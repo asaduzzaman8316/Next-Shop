@@ -9,7 +9,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css'
 import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
-import { increment } from "../../../Cart/counterSlice";
+import { increment, setWishlist } from "../../../Cart/counterSlice";
 AOS.init()
 interface detesls {
     id: string,
@@ -32,6 +32,7 @@ interface ProductHook {
     description: detesls[]
 }
 function Top({ id }: { id: string | undefined }) {
+
     const dispatch = useDispatch()
     const { description } = useProduct() as ProductHook;
     const filterData: detesls | undefined = id && description
@@ -89,7 +90,9 @@ function Top({ id }: { id: string | undefined }) {
                                                 onClick={handlerClick}
                                                 className="cursor-pointer">Add to Cart</button>
                                         </div>
-                                        <div className="border border-gray-200 size-12 flex justify-center items-center text-gray-400 hover:bg-[#3BB77E] hover:text-white hover:-translate-y-1 duration-500 rounded-md text-2xl"><CiHeart /></div>
+                                        <div
+                                            onClick={() => dispatch(setWishlist(Number(filterData.id)))}
+                                            className="border border-gray-200 size-12 flex justify-center items-center text-gray-400 hover:bg-[#3BB77E] hover:text-white hover:-translate-y-1 duration-500 rounded-md text-2xl cursor-pointer"><CiHeart /></div>
                                         <div className="border border-gray-200 size-12 flex justify-center items-center text-gray-400 hover:bg-[#3BB77E] hover:text-white hover:-translate-y-1 duration-500 rounded-md text-2xl"><TbArrowsCross /></div>
                                     </div>
 
