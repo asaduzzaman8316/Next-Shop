@@ -14,6 +14,7 @@ import WishlistContainer from './Pages/Wishlist/WishlistContainer.tsx';
 import Vendor from './Pages/Vendor/Vendor.tsx';
 import Blog from './Pages/Blog/Blog.tsx';
 import SingleBlog from './Compomemts/Share/SingleBlog/SingleBlog.tsx';
+import Contact from './Pages/Contact/Contact.tsx';
 
 const router = createBrowserRouter([
     {
@@ -59,6 +60,10 @@ const router = createBrowserRouter([
             {
                 path: '/blog/:id',
                 element: <SingleBlog />
+            },
+            {
+                path: '/contact',
+                element: <Contact />
             }
 
         ]
