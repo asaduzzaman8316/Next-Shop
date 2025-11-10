@@ -13,7 +13,7 @@ type categories = {
 function PopularProductsHead() {
     const { categories } = useData()
 
-    const [cid, setCid] = useState(0)
+    const [cid, setCid] = useState(0) 
     const [btn, setBtn] = useState(0)
 
     function handleClick(id: number): void {

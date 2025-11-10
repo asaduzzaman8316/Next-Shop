@@ -11,8 +11,9 @@ import { Link } from "react-router";
 import Loader from "../../Loader/Loader";
 AOS.init()
 import { setWishlist } from "../../Cart/counterSlice";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
+import type { RootState } from "../../Redux/store";
 type productss = {
     name: string,
     id: number,
@@ -29,12 +30,13 @@ type productss = {
 function ProductCard(props: { id?: number }) {
     const { products, isLoading } = useData()
     const dispatch = useDispatch()
+    const isLogin = useSelector((state: RootState) => state.counter.isLogin)
 
 
 
     function handlerWishlist(id: number) {
         dispatch(setWishlist(id))
-        toast('Wishilist Add Successful', {position:"top-right"})
+        toast('Wishilist Add Successful', { position: "top-right" })
     }
 
     if (isLoading) {
@@ -46,6 +48,14 @@ function ProductCard(props: { id?: number }) {
     }
 
     const filterProduct = props.id !== 0 ? products.filter((item: productss) => item.categoryId === props.id) : products;
+
+    function handlerAddWidhLisst(id: number) {
+        if (isLogin == true) {
+            handlerWishlist(id)
+        } else {
+            toast.warn('Login First', { position: 'top-right' })
+        }
+    }
     return (
         <>
             {
@@ -70,7 +80,7 @@ function ProductCard(props: { id?: number }) {
                         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-4/5 sm:w-3/5 opacity-100 lg:opacity-0 group-hover:opacity-100 transition-all duration-300">
                             <div className="flex justify-between bg-white border border-green-200 rounded-lg divide-x divide-green-100 shadow-lg">
                                 <button
-                                    onClick={() => handlerWishlist(item.id)}
+                                    onClick={() => handlerAddWidhLisst(item.id)}
                                     className="flex-1 p-3 cursor-pointer text-green-500 hover:text-yellow-500 transition-colors duration-200">
                                     <FaRegHeart className="w-5 h-5 mx-auto" />
                                 </button>

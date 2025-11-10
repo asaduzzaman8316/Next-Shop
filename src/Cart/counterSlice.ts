@@ -6,7 +6,8 @@ export interface CounterState {
   productId:number[],
   categoryId:number,
   wishlist:number,
-  wishlistProductId:number[]
+  wishlistProductId:number[],
+  isLogin:boolean,
 }
 
 const initialState: CounterState = {
@@ -14,7 +15,8 @@ const initialState: CounterState = {
   productId:[],
   categoryId:0,
   wishlist:0,
-  wishlistProductId:[]
+  wishlistProductId:[],
+  isLogin:false
 }
 
 export const counterSlice = createSlice({
@@ -53,11 +55,17 @@ export const counterSlice = createSlice({
         state.wishlistProductId.length =0;
         state.wishlistProductId.push(...removedid)
         state.wishlist = state.wishlistProductId.length
+      },
+      setIslogin:(state)=>{
+        state.isLogin = true;
+      },
+      setLogout:(state)=>{
+        state.isLogin = false;
       }
   },
 })
 
 // Action creators are generated for each case reducer function
-export const { increment, decrement, productIdEmpty,singleProductDelete, setCategoryId, setWishlist, removeWishlist } = counterSlice.actions
+export const { increment, decrement, productIdEmpty,singleProductDelete, setCategoryId, setWishlist, removeWishlist, setIslogin, setLogout } = counterSlice.actions
 
 export default counterSlice.reducer

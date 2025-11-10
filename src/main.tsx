@@ -15,6 +15,8 @@ import Vendor from './Pages/Vendor/Vendor.tsx';
 import Blog from './Pages/Blog/Blog.tsx';
 import SingleBlog from './Compomemts/Share/SingleBlog/SingleBlog.tsx';
 import Contact from './Pages/Contact/Contact.tsx';
+import SignUp from './Pages/SignUp.tsx';
+import Acount from './Pages/Acount/Acount.tsx';
 
 const router = createBrowserRouter([
     {
@@ -64,6 +66,14 @@ const router = createBrowserRouter([
             {
                 path: '/contact',
                 element: <Contact />
+            },
+            {
+                path: '/account/login',
+                element: <SignUp />
+            },
+            {
+                path: '/account',
+                element: <Acount />
             }
 
         ]

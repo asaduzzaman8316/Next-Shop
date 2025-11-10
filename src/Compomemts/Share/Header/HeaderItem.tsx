@@ -55,7 +55,7 @@ function HeaderItem() {
                 <div className="flex items-center gap-4">
                     <Sidelogo nav="/wishlist" Icon={FaRegHeart} name="Wishlist" count={Wishlistcount} />
                     <Sidelogo nav="/addtocart" Icon={IoCartOutline} name="Cart" count={Cartcount} />
-                    <Sidelogo nav="/compare" Icon={FaRegUser} name="Account" />
+                    <Sidelogo nav="/account" Icon={FaRegUser} name="Account" />
                 </div>
             </div>
         </div>
