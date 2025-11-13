@@ -5,7 +5,7 @@
 
 # Asad-Shop 
 
->A responsive, Vite + React + TypeScript e-commerce starter used as the project codebase for the Next-Shop UI. This repository demonstrates a real-world web storefront with product grids, hero sections, sliders, cart functionality, and responsive layout powered by Tailwind CSS.
+>A responsive, Vite + React + TypeScript e-commerce starter used as the project codebase for the Asad-Shop UI. This repository demonstrates a real-world web storefront with product grids, hero sections, sliders, cart functionality, and responsive layout powered by Tailwind CSS.
 
 ---
 
@@ -25,7 +25,7 @@
 
 ## Project summary
 
-Next-Shop is a client-side storefront built with:
+Asad-Shop is a client-side storefront built with:
 - React (with TypeScript)
 - Vite (fast dev server)
 - Tailwind CSS for styling
